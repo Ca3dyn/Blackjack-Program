@@ -14,7 +14,7 @@ namespace Blackjack
             
             Console.Title = "Caedyn's Blackjack Program v3.0";
             Console.WriteLine("Welcome to Blackjack.");
-            Console.WriteLine("Press any key to deal cards and start the game.");
+            Console.WriteLine("The cards are being dealt. Take a card?\n(y or n)");
 
             Choices("Enter 1, 2, or 3.", "This represents a hit.", "This represents a pass.", "Here are all the cards:");
 

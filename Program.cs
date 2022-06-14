@@ -124,17 +124,25 @@ namespace Blackjack
                 
         }
 
+        string universe =  Cards().everything;
+
         public static string playerHand() {
           
-           return "something"; 
+            if (userOption == 'y') {}
+
+            return "something"; 
            
         }
 
         public static string dealerHand() {
 
+
+
             return "something";
 
         }
+
+        
     }
 }
 

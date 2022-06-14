@@ -13,15 +13,17 @@ namespace Blackjack
 
             do {
             
-            Console.WriteLine("Welcome to Blackjack.");
+                Console.WriteLine("Welcome to Blackjack.");
 
-            Choices("The cards are being dealt. Take a card?\n(y or n)\nInsert c to see list of all generated cards.", "This represents a hit. You pressed y.", "This represents a pass. You pressed n.", "Here are all the cards:");
+                Choices("The cards are being dealt. Take two cards?\n(y or n)\nInsert c to see list of all generated cards.", "You take two cards", "Why did you not take the cards?\nTry again, you utterly failed the game. I'm disappointed in you.", "Here are all the cards:\n");
 
-            Console.ReadKey();
-            Console.Clear();
+                Console.ReadKey();
+                Console.Clear();
             
             }
+
             while (z == true);
+
         }
 
         public static void Choices(string question, string optionOne, string optionTwo, string optionThree) {
@@ -53,7 +55,14 @@ namespace Blackjack
                     
             }
 
-            else if (userOption != 'y' || userOption != 'n' || userOption != 'c')  {
+            else if (userOption == '`') {
+                
+                Console.Clear();
+                Console.WriteLine("Never gonna give you up. Never gonna let you down.");
+                    
+            }
+
+            else if (userOption != 'y' || userOption != 'n' || userOption != 'c' || userOption != '`')  {
             
                 Console.Clear();
                 Console.WriteLine("Please input a valid character.\nPress any key to return to the start.");
@@ -91,8 +100,8 @@ namespace Blackjack
 
             while (i <= 52) {
 
-                testNumber = numGen.Next(0, 52);
-                everything = (cardDeck [testNumber, 0] + " = " + cardDeck [testNumber, 1]);
+            testNumber = numGen.Next(0, 52);
+            everything = (cardDeck [testNumber, 0] + " = " + cardDeck [testNumber, 1]);
 
                 if (!repeatedNums.Contains(testNumber)) {
                     
@@ -103,11 +112,11 @@ namespace Blackjack
                 
                 }
 
-            else if(i == 52) {
+                else if(i == 52) {
 
-                break;
-                
-            }
+                    break;
+                    
+                }
 
             }
 
@@ -115,11 +124,17 @@ namespace Blackjack
                 
         }
 
-        public static string drawnCards() {
+        public static string playerHand() {
           
-           return "ur mom"; 
+           return "something"; 
            
-           }
+        }
+
+        public static string dealerHand() {
+
+            return "something";
+
+        }
     }
 }
 

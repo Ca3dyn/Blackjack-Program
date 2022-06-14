@@ -9,14 +9,13 @@ namespace Blackjack
         public static void Main(string[] args){
             
             bool z = true;
-           
+            Console.Title = "Caedyn's Blackjack Program v3.0";
+
             do {
             
-            Console.Title = "Caedyn's Blackjack Program v3.0";
             Console.WriteLine("Welcome to Blackjack.");
-            Console.WriteLine("The cards are being dealt. Take a card?\n(y or n)");
 
-            Choices("Enter 1, 2, or 3.", "This represents a hit.", "This represents a pass.", "Here are all the cards:");
+            Choices("The cards are being dealt. Take a card?\n(y or n)", "This represents a hit. You pressed y.", "This represents a pass. You pressed n.", "Here are all the cards:");
 
             Console.ReadKey();
             Console.Clear();
@@ -28,55 +27,50 @@ namespace Blackjack
         public static void Choices(string question, string optionOne, string optionTwo, string optionThree) {
 
 
-            try {
+        try {
 
-            int userOption;
+            char userOption;
             Console.WriteLine(question);
 
-            userOption = Convert.ToInt16(Console.ReadLine());
+            userOption = Console.ReadKey().KeyChar;
 
-            if (userOption == 1) 
-            {
+            if (userOption == 'y') {
 
-            Console.Clear();    
-            Console.WriteLine(optionOne);
-         
+                Console.Clear();    
+                Console.WriteLine(optionOne);
+        
             }
 
-            else if (userOption == 2) 
-            {
+            else if (userOption == 'n') {
 
-            Console.Clear();
-            Console.WriteLine(optionTwo);
+                Console.Clear();
+                Console.WriteLine(optionTwo);
 
             }
 
-            else if (userOption == 3)
-            {
+            else if (userOption == 'c') {
                 
                 Console.Clear();
                 Console.WriteLine(optionThree);
                 Cards();
-                     
+                    
             }
 
-            else if (userOption != 1 || userOption != 2 || userOption != 3)  {
-               
+            else if (userOption != 'y' || userOption != 'n' || userOption != 'c')  {
+            
                 Console.Clear();
-                Console.WriteLine("why would you do this. are you dum. thats not 1, 2, or 3. Go bak or perish.");
-                //learn how to catch the error when strings are input instead of ints
-
+                Console.WriteLine("why would you do this. do you have a low iq. thats not y, n, or c. im tired of breaking lol.");
 
             } 
-            }
-           
-            catch {
-
-            Console.Clear();
-            Console.WriteLine("Error. You did a thing.");
-
-            }
         }
+        
+        catch {
+
+        Console.Clear();
+        Console.WriteLine("Error. You did a thing.");
+
+        } 
+        } 
 
         public static string Cards() {
 

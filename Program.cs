@@ -15,7 +15,7 @@ namespace Blackjack
             
             Console.WriteLine("Welcome to Blackjack.");
 
-            Choices("The cards are being dealt. Take a card?\n(y or n)", "This represents a hit. You pressed y.", "This represents a pass. You pressed n.", "Here are all the cards:");
+            Choices("The cards are being dealt. Take a card?\n(y or n)\nInsert c to see list of all generated cards.", "This represents a hit. You pressed y.", "This represents a pass. You pressed n.", "Here are all the cards:");
 
             Console.ReadKey();
             Console.Clear();
@@ -59,7 +59,7 @@ namespace Blackjack
             else if (userOption != 'y' || userOption != 'n' || userOption != 'c')  {
             
                 Console.Clear();
-                Console.WriteLine("why would you do this. do you have a low iq. thats not y, n, or c. im tired of breaking lol.");
+                Console.WriteLine("Please input a valid character.\nPress any key to return to the start.");
 
             } 
         }
@@ -67,7 +67,7 @@ namespace Blackjack
         catch {
 
         Console.Clear();
-        Console.WriteLine("Error. You did a thing.");
+        Console.WriteLine("Error. How did this happen...?");
 
         } 
         } 

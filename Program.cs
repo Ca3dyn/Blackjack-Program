@@ -26,9 +26,6 @@ namespace Blackjack
 
         public static void Choices(string question, string optionOne, string optionTwo, string optionThree) {
 
-
-        try {
-
             char userOption;
             Console.WriteLine(question);
 
@@ -62,14 +59,7 @@ namespace Blackjack
                 Console.WriteLine("Please input a valid character.\nPress any key to return to the start.");
 
             } 
-        }
         
-        catch {
-
-        Console.Clear();
-        Console.WriteLine("Error. How did this happen...?");
-
-        } 
         } 
 
         public static string Cards() {

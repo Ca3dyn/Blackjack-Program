@@ -130,16 +130,15 @@ namespace Blackjack
             int randomCard = cardGen.Next(0,52);
             // Put this somewhere later: Console.WriteLine(norepeatCards[randomCard]);
 
-            for (int i = 0; i < 52; i++) {
+             if (randomNums.Contains(randomCard)) {
 
+                    Console.WriteLine("The norepeatCards card is: " + norepeatCards[randomCard]);
+                    randomNums.Remove(randomCard);
+                    norepeatCards.RemoveAt(randomCard);
+                    Console.WriteLine("it has finished removing the randomInt from the lists.");
+                    Console.WriteLine("The norepeatCards card is: " + norepeatCards[randomCard]);             
 
-                
-            }
-            
-            if (randomNums.Contains(randomCard)) {
-
-                Console.WriteLine("The index from norepeatCards: " + norepeatCards[randomCard]);
-                Console.WriteLine("The index from randomNums: " + randomNums[randomCard]);
+                }
 
             //make it so if the list contains the item give it to the player via maybe
             //a list and then remove it from the original list
@@ -151,6 +150,5 @@ namespace Blackjack
         }
         
     }
-}
 
         

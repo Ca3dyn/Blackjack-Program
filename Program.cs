@@ -143,7 +143,7 @@ namespace Blackjack
             //make it so if the list contains the item give it to the player via maybe
             //a list and then remove it from the original list
             //if no repeat num list contains a number, save the number then print out that 
-            //id number of the carddeck list and remove that index number from both lists
+            //id number of the carddeck list and remove that index number from both lists.
 
             }
            

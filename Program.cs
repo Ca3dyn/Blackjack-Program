@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace Blackjack
 {
     class Program
@@ -23,7 +24,8 @@ namespace Blackjack
             
             static List<int> randomNums = new List<int>();
             static List<string> norepeatCards = new List<string>();
-
+            static List<string> playerCards = new List<string>();
+            
         public static void Main(string[] args){
             
             bool z = true;
@@ -34,10 +36,12 @@ namespace Blackjack
                 Console.WriteLine("Welcome to Blackjack.");
 
                 Cards();
-                Choices("The cards are being dealt. Take two cards?\n(y or n)\nInsert c to see list of all generated cards.", "You take two cards", "Why did you not take the cards?\nTry again, you utterly failed the game. I'm disappointed in you.", "Here are all the cards:");
+                Choices("The cards are being dealt. Take two cards?\n(y or n)\n\nPress 'c' to see the deck of cards.", "You take two cards", "You tried.", "Here are all the cards:\n");
 
                 Console.ReadKey();
                 randomNums.Clear();
+                playerCards.Clear();
+                norepeatCards.Clear();
                 Console.Clear();
             
             }
@@ -57,7 +61,7 @@ namespace Blackjack
 
                 Console.Clear();    
                 Console.WriteLine(optionOne);
-                dealingCards();
+                playergetsCards();
 
             }
 
@@ -65,6 +69,12 @@ namespace Blackjack
 
                 Console.Clear();
                 Console.WriteLine(optionTwo);
+                Thread.Sleep(1500);
+                Console.WriteLine("I guess...?");
+                Thread.Sleep(1000);
+                Console.WriteLine("Press any key to return to the start.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You kind of suck at this game.");
 
             }
 
@@ -80,7 +90,14 @@ namespace Blackjack
 
                     }
 
-                Console.WriteLine("There are " + z + " cards.");
+                Console.WriteLine("\nThere are " + z + " cards.");
+                        
+            }
+
+            else if (userOption == 's') {
+                
+                Console.Clear();
+                Console.WriteLine("Hi Santos.");
                         
             }
 
@@ -88,6 +105,25 @@ namespace Blackjack
                 
                 Console.Clear();
                 Console.WriteLine("Never gonna give you up. Never gonna let you down.");
+                /*Console.WriteLine(@"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⠿⠟⠛⠻⣿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣆⣀⣀⠀⣿⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠻⣿⣿⣿⠅⠛⠋⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢼⣿⣿⣿⣃⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣟⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣛⣛⣫⡄⠀⢸⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⡆⠸⣿⣿⣿⡷⠂⠨⣿⣿⣿⣿⣶⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣾⣿⣿⣿⣿⡇⢀⣿⡿⠋⠁⢀⡶⠪⣉⢸⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⡏⢸⣿⣷⣿⣿⣷⣦⡙⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣇⢸⣿⣿⣿⣿⣿⣷⣦⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣵⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+            ASCII cannot be read by terminal. Needs to be turned into UTF or something*/
                     
             }
 
@@ -107,7 +143,7 @@ namespace Blackjack
             int randomNumber = numGen.Next(0, 52);
             string everything = (cardDeck [randomNumber, 0] + " = " + cardDeck [randomNumber, 1]);
     
-            while (i <= 51) {
+            while (i < 52) {
 
                 randomNumber = numGen.Next(0, 52);
                 everything = (cardDeck [randomNumber, 0 ] + " = " + cardDeck [randomNumber, 1]);
@@ -124,28 +160,44 @@ namespace Blackjack
                 
         }
 
-        public static void dealingCards() {
+        public static void playergetsCards() {
           
             Random cardGen = new Random();
             int randomCard = cardGen.Next(0,52);
-            // Put this somewhere later: Console.WriteLine(norepeatCards[randomCard]);
+            int i = 0;
 
-             if (randomNums.Contains(randomCard)) {
+            while (i < 2) {
 
-                    Console.WriteLine("The norepeatCards card is: " + norepeatCards[randomCard]);
-                    randomNums.Remove(randomCard);
-                    norepeatCards.RemoveAt(randomCard);
-                    Console.WriteLine("it has finished removing the randomInt from the lists.");
-                    Console.WriteLine("The norepeatCards card is: " + norepeatCards[randomCard]);             
+                randomCard = cardGen.Next(0, 52);
+
+                if (randomNums.Contains(randomCard)) {
+
+                    Console.WriteLine(norepeatCards[randomCard]);
+                    playerCards.Add(norepeatCards[randomCard]);
+                    randomNums.Remove(randomCard);    
+                    i++;          
 
                 }
 
-            //make it so if the list contains the item give it to the player via maybe
-            //a list and then remove it from the original list
-            //if no repeat num list contains a number, save the number then print out that 
-            //id number of the carddeck list and remove that index number from both lists.
+                //make a while loop which continues as long as the user inputs
+                //y to take a card and if n is picked then break the loop
 
             }
+
+            //Somehow find a way to make a variable which adds finds the total amount of
+            //index rows of playerCards list and add up the values of those indexes
+
+            //You can possibly make two different lists for the player's cards. 
+            //One to store the name
+            //and one to store the value
+
+            }
+
+        public static void dealergetsCards() {
+
+            
+
+        }
            
         }
         

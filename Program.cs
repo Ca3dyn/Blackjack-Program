@@ -177,8 +177,9 @@ namespace Blackjack
 
                     for(int h = 0; h < 52; h++) {
                     
-                        string total = toint32.cardDeck[randomnumOrder[h] , 1];
-
+                        //string total = toint32.cardDeck[randomnumOrder[h] , 1];
+                        //Find a way to print out the values of cards and make it
+                        //into an int which can be added together and combined into one
                     }
 
                 }

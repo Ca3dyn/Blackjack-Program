@@ -30,7 +30,7 @@ namespace Blackjack
             
         public static void Main(string[] args){
             
-            bool z = true;
+            bool b = true;
             Console.Title = "Caedyn's Blackjack Program v3.0";
 
             do {
@@ -48,7 +48,7 @@ namespace Blackjack
             
             }
 
-            while (z == true);
+            while (b == true);
 
         }
 
@@ -202,12 +202,6 @@ namespace Blackjack
 
                 }
 
-                else {
-
-                    break;
-
-                }
-
             }
 
             bool z = true;
@@ -254,7 +248,7 @@ namespace Blackjack
             //One to store the name
             //and one to store the value
 
-            }
+        }
 
         public static void dealergetsCards() {
 

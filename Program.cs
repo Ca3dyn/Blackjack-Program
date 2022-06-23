@@ -10,7 +10,7 @@ namespace Blackjack
         static String[,] cardDeck = { {"Ace of Spades", "1 or 11" }, {"Two of Spades", "2"}, {"Three of Spades", "3"}, 
             {"Four of Spades", "4"}, {"Five of Spades", "5"}, {"Six of Spades", "6"}, {"Seven of Spades", "7"},
             {"Eight of Spades", "8"}, {"Nine of Spades", "9"}, {"Ten of Spades", "10"}, {"Jack of Spades", "10"},
-            {"Queen of Spades", "10"}, {"King of Spades", "10"}, {"Ace of Clubs", "1 or 11"}, {"Two of Clubs", "20"},
+            {"Queen of Spades", "10"}, {"King of Spades", "10"}, {"Ace of Clubs", "1 or 11"}, {"Two of Clubs", "2"},
             {"Three of Clubs", "3"}, {"Four of Clubs", "4"}, {"Five of Clubs", "5"}, {"Six of Clubs", "6"}, 
             {"Seven of Clubs", "7"}, {"Eight of Clubs", "8"}, {"Nine of Clubs", "9"}, {"Ten of Clubs", "10"}, 
             {"Jack of Clubs", "10"}, {"Queen of Clubs", "10"}, {"King of Clubs", "10"}, {"Ace of Hearts", "1 or 11"},
@@ -25,6 +25,8 @@ namespace Blackjack
             static List<int> randomNums = new List<int>();
             static List<string> norepeatCards = new List<string>();
             static List<string> playerCards = new List<string>();
+            static List<string> playercardNames = new List<string>();
+            static List<int> playercardValue = new List<int>();
             
         public static void Main(string[] args){
             
@@ -74,7 +76,7 @@ namespace Blackjack
                 Thread.Sleep(1000);
                 Console.WriteLine("Press any key to return to the start.");
                 Thread.Sleep(2000);
-                Console.WriteLine("You kind of suck at this game.");
+                Console.WriteLine("You kind of suck at this game. :/");
 
             }
 
@@ -98,6 +100,27 @@ namespace Blackjack
                 
                 Console.Clear();
                 Console.WriteLine("Hi Santos.");
+                        
+            }
+
+            else if (userOption == 'k') {
+                
+                Console.Clear();
+                Console.WriteLine("Kate was here.");
+                        
+            }
+
+            else if (userOption == 't') {
+                
+                Console.Clear();
+                Console.WriteLine("Tessa wasn't here.");
+                        
+            }
+
+            else if (userOption == 'e') {
+                
+                Console.Clear();
+                Console.WriteLine("Mr. Eien Kobayashi in the flesh. Or I guess not flesh.\nHe's here though I guess.");
                         
             }
 
@@ -134,7 +157,7 @@ namespace Blackjack
                 Console.WriteLine("Press any key to return to the start.");
             } 
         
-        } 
+        }
 
         public static void Cards() {
 
@@ -179,10 +202,50 @@ namespace Blackjack
 
                 }
 
-                //make a while loop which continues as long as the user inputs
-                //y to take a card and if n is picked then break the loop
+                else {
+
+                    break;
+
+                }
 
             }
+
+            bool z = true;
+            char userOption;
+
+            do {
+
+                userOption = Console.ReadKey().KeyChar;
+
+                if (userOption == 'y') {
+
+                    randomCard = cardGen.Next(0, 52);
+
+                    if (randomNums.Contains(randomCard)) {
+
+                        Console.Clear();
+                        playerCards.Add(norepeatCards[randomCard]);
+                        randomNums.Remove(randomCard);           
+                        
+                        for (int t = 0; t < playerCards.Count; t++) {
+
+                            Console.WriteLine(playerCards[t]);
+
+                        }
+
+                    }
+
+                }
+
+                else if (userOption == 'n') {
+
+                    z = false;
+
+                }
+
+            }
+            
+            while (z == true);
 
             //Somehow find a way to make a variable which adds finds the total amount of
             //index rows of playerCards list and add up the values of those indexes
@@ -199,9 +262,9 @@ namespace Blackjack
 
         }
            
-        }
-        
     }
+        
+}
 
         
         

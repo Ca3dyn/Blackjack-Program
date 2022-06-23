@@ -25,8 +25,7 @@ namespace Blackjack
             static List<int> randomNums = new List<int>();
             static List<string> norepeatCards = new List<string>();
             static List<string> playerCards = new List<string>();
-            static List<string> playercardNames = new List<string>();
-            static List<int> playercardValue = new List<int>();
+            static List<int> randomnumOrder = new List<int>();
             
         public static void Main(string[] args){
             
@@ -89,31 +88,11 @@ namespace Blackjack
                     for(int i = 0; i < 52; i++) {
                     
                         Console.WriteLine(norepeatCards[i]);
+                        Console.WriteLine(randomnumOrder[i]);
 
                     }
 
                 Console.WriteLine("\nThere are " + z + " cards.");
-                        
-            }
-
-            else if (userOption == 's') {
-                
-                Console.Clear();
-                Console.WriteLine("Hi Santos.");
-                        
-            }
-
-            else if (userOption == 'k') {
-                
-                Console.Clear();
-                Console.WriteLine("Kate was here.");
-                        
-            }
-
-            else if (userOption == 't') {
-                
-                Console.Clear();
-                Console.WriteLine("Tessa wasn't here.");
                         
             }
 
@@ -150,7 +129,7 @@ namespace Blackjack
                     
             }
 
-            else if (userOption != 'y' || userOption != 'n' || userOption != 'c' || userOption != '`')  {
+            else if (userOption != 'y' || userOption != 'n' || userOption != 'c' || userOption != 'e' || userOption != '`')  {
             
                 Console.Clear();
                 Console.WriteLine("Please input a valid character.");
@@ -164,17 +143,16 @@ namespace Blackjack
             Random numGen = new Random();
             int i = 0;
             int randomNumber = numGen.Next(0, 52);
-            string everything = (cardDeck [randomNumber, 0] + " = " + cardDeck [randomNumber, 1]);
     
             while (i < 52) {
 
                 randomNumber = numGen.Next(0, 52);
-                everything = (cardDeck [randomNumber, 0 ] + " = " + cardDeck [randomNumber, 1]);
 
                     if (!randomNums.Contains(randomNumber)) {
                         
+                        randomnumOrder.Add(randomNumber);
                         randomNums.Add(randomNumber);
-                        norepeatCards.Add(everything);
+                        norepeatCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
                         i++;
                     
                     }
@@ -193,10 +171,22 @@ namespace Blackjack
 
                 randomCard = cardGen.Next(0, 52);
 
+                if (i == 2) {
+
+                    Console.WriteLine("'i' is equal to 2.");
+
+                    for(int h = 0; h < 52; h++) {
+                    
+                        string total = toint32.cardDeck[randomnumOrder[h] , 1];
+
+                    }
+
+                }
+
                 if (randomNums.Contains(randomCard)) {
 
-                    Console.WriteLine(norepeatCards[randomCard]);
-                    playerCards.Add(norepeatCards[randomCard]);
+                    Console.WriteLine(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
+                    playerCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
                     randomNums.Remove(randomCard);    
                     i++;          
 
@@ -218,13 +208,13 @@ namespace Blackjack
                     if (randomNums.Contains(randomCard)) {
 
                         Console.Clear();
-                        playerCards.Add(norepeatCards[randomCard]);
+                        playerCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
                         randomNums.Remove(randomCard);           
                         
                         for (int t = 0; t < playerCards.Count; t++) {
 
-                            Console.WriteLine(playerCards[t]);
-
+                            Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
+                         
                         }
 
                     }

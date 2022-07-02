@@ -74,12 +74,10 @@ namespace Blackjack
 
                 Console.Clear();
                 Console.WriteLine(optionTwo);
-                Thread.Sleep(1500);
+                Thread.Sleep(750);
                 Console.WriteLine("I guess...?");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Console.WriteLine("Press any key to return to the start.");
-                Thread.Sleep(2000);
-                Console.WriteLine("You kind of suck at this game. :/");
 
             }
 
@@ -191,69 +189,92 @@ namespace Blackjack
 
             }
 
-            Console.WriteLine(totalValue);
-            bool z = true;
+            Console.WriteLine("\nYour total value is: " + totalValue);
             char userOption;
 
             while (i < 52) {
 
                 userOption = Console.ReadKey().KeyChar;
+                randomCard = cardGen.Next(0, 52);
 
-                if (userOption == 'y') {
+                if (totalValue <= 21) {                  
 
-                    randomCard = cardGen.Next(0, 52);
+                    if (userOption == 'y') {
 
-                    if (randomNums.Contains(randomCard)) {
+                        if (randomNums.Contains(randomCard)) {
 
-                        Console.Clear();
-                        playerCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
-                        randomNums.Remove(randomCard);
-                        int value = Convert.ToInt32(cardDeck[randomnumOrder[i] , 1]);
-                        totalValue += value;     
-                        i++;      
-                        
-                        for (int t = 0; t < playerCards.Count; t++) {
-                        
-                            Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
-                         
+                            Console.Clear();
+                            playerCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
+                            randomNums.Remove(randomCard);
+                            int value = Convert.ToInt32(cardDeck[randomnumOrder[i] , 1]);
+                            totalValue += value;     
+                            i++;      
+                            
+                            for (int t = 0; t < playerCards.Count; t++) {
+                            
+                                Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
+                            
+                            }
+
+                            Console.WriteLine("\nYour total value is: " + totalValue);
+
                         }
 
-                        Console.WriteLine(totalValue);
-
                     }
 
+                    if (userOption == 'n') {
+                        
+                        Console.Clear();
+                        
+                        for (int t = 0; t < playerCards.Count; t++) {
+                            
+                            Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
+                            
+                        }
+
+                        Console.WriteLine("You ended with " + totalValue + " points.");
+                        break;
+                        
+
+                    }
                 }
 
-                else if (userOption == 'n') {
+                if (totalValue > 21) {
                     
-                    Console.Clear();
-                    
-                    for (int t = 0; t < playerCards.Count; t++) {
+                    Console.WriteLine("You lost the game. Your total value was over 21");
+                    userOption = Console.ReadKey().KeyChar;
+
+                    if (userOption == '?') {
+
+                        Console.Clear();
+                        string? hack = null;
+                        Console.WriteLine("What, do you have something to say?");
+                        hack = Console.ReadLine();
+
+                        if (hack == "imacheater") {
+
+                            Console.Clear();
+                            Console.WriteLine("Okay. You know what. You win. \nHave some coins or something. \n\n*You won 10 nickels*");
+                            break;
+
+                        }
+
+                        else {
+
+                            Console.WriteLine("Thats really cool. Now go back and play again.");
+
+                        }
                         
-                        Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
-                         
                     }
 
-                    Console.WriteLine("This means that you don't want any more cards.");
-                    Console.WriteLine("You ended with " + totalValue + " points.");
-                    z = false;
+                    Console.ReadKey();
                     break;
                     
-
                 }
-
             }
-            
-            while (z == true);
 
         }
 
-        public static void dealergetsCards() {
-
-            
-
-        }
-           
     }
         
 }

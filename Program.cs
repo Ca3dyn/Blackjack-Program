@@ -30,7 +30,7 @@ namespace Blackjack
         public static void Main(string[] args){
             
             bool b = true;
-            Console.Title = "Caedyn's Blackjack Program v3.0";
+            Console.Title = "Caedyn's Blackjack Program v4.0";
 
             //I need to make it so aces are worth 11 at first but if the totalValue of the player's
             //cards goes over 21 and an ace is in their hand then make it automatically -10 or something
@@ -167,14 +167,6 @@ namespace Blackjack
             while (i < 2) {
 
                 randomCard = cardGen.Next(0, 52);
-
-                for(int h = 0; h < 52; h++) {
-                    
-                    //string total = toint32.cardDeck[randomnumOrder[h] , 1];
-                    //Find a way to print out the values of cards and make it
-                    //into an int which can be added together and combined into one
-
-                }
 
                 if (randomNums.Contains(randomCard)) {
 

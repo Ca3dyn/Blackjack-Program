@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\Important Files\\Coding Stuff\\C# Coding Projects\\Blackjack v2.0\\Blackjack v2.0.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\Important Files\\Coding Stuff\\C# Coding Projects\\Blackjack v4.0\\Blackjack v2.0.csproj",
       "projectName": "Blackjack v2.0",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\Important Files\\Coding Stuff\\C# Coding Projects\\Blackjack v2.0\\Blackjack v2.0.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\Important Files\\Coding Stuff\\C# Coding Projects\\Blackjack v4.0\\Blackjack v2.0.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\Important Files\\Coding Stuff\\C# Coding Projects\\Blackjack v2.0\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\Important Files\\Coding Stuff\\C# Coding Projects\\Blackjack v4.0\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"

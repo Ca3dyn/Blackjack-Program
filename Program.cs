@@ -35,6 +35,9 @@ namespace Blackjack
             //I need to make it so aces are worth 11 at first but if the totalValue of the player's
             //cards goes over 21 and an ace is in their hand then make it automatically -10 or something
 
+            //Sometimes button intputs are needed twice or more times to register
+            //I do not know why.    
+
             do {
             
                 Console.WriteLine("Welcome to Blackjack.");
@@ -66,7 +69,7 @@ namespace Blackjack
 
                 Console.Clear();    
                 Console.WriteLine(optionOne);
-                playergetsCards();
+                theGame();
 
             }
 
@@ -156,7 +159,7 @@ namespace Blackjack
                 
         }
 
-        public static void playergetsCards() {
+        public static void theGame() {
           
             Random cardGen = new Random();
             int randomCard = cardGen.Next(0,52);
@@ -182,6 +185,7 @@ namespace Blackjack
             }
 
             Console.WriteLine("\nYour total value is: " + totalValue);
+            Console.WriteLine("Take another card?\n(y or n)");
             char userOption;
 
             while (i < 52) {
@@ -209,6 +213,7 @@ namespace Blackjack
                             }
 
                             Console.WriteLine("\nYour total value is: " + totalValue);
+                            Console.WriteLine("Take another card?\n(y or n)");
 
                         }
 
@@ -233,6 +238,15 @@ namespace Blackjack
 
                 if (totalValue > 21) {
                     
+                    Console.Clear();
+
+                    for (int t = 0; t < playerCards.Count; t++) {
+                            
+                        Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
+                            
+                    }
+
+                    Console.WriteLine("\nYour total value is: " + totalValue);
                     Console.WriteLine("You lost the game. Your total value was over 21");
                     userOption = Console.ReadKey().KeyChar;
 
@@ -254,13 +268,17 @@ namespace Blackjack
                         else {
 
                             Console.WriteLine("Thats really cool. Now go back and play again.");
-
+                            Console.ReadKey();
+                            break;
                         }
                         
                     }
 
-                    Console.ReadKey();
-                    break;
+                    else {
+
+                        break;
+
+                    }
                     
                 }
             }

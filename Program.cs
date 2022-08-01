@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 
 
-namespace Blackjack
-{
-    class Program
-    {
+namespace Blackjack {
+    class Program {
 
         static String[,] cardDeck = { {"Ace of Spades", "11" }, {"Two of Spades", "2"}, {"Three of Spades", "3"}, 
             {"Four of Spades", "4"}, {"Five of Spades", "5"}, {"Six of Spades", "6"}, {"Seven of Spades", "7"},
@@ -25,6 +23,7 @@ namespace Blackjack
             static List<int> randomNums = new List<int>();
             static List<string> norepeatCards = new List<string>();
             static List<string> playerCards = new List<string>();
+            static List<string> dealerCards = new List<string>();
             static List<int> randomnumOrder = new List<int>();
             
         public static void Main(string[] args){
@@ -32,18 +31,19 @@ namespace Blackjack
             bool b = true;
             Console.Title = "Caedyn's Blackjack Program v4.0";
 
-            //I need to make it so aces are worth 11 at first but if the totalValue of the player's
-            //cards goes over 21 and an ace is in their hand then make it automatically -10 or something
+            //I need to make it so aces are worth 11 at first but if the total value (playerValue) 
+            //of the player's cards goes over 21 and an ace is in their hand then make it
+            // automatically -10 or something
 
             //Sometimes button intputs are needed twice or more times to register
-            //I do not know why.    
+            //I do not know why.    ¯\_(ツ)_/¯ 
 
             do {
             
                 Console.WriteLine("Welcome to Blackjack.");
 
                 Cards();
-                Choices("The cards are being dealt. Take two cards?\n(y or n)\n\nPress 'c' to see the deck of cards.", "You take two cards", "You tried.", "Here are all the cards:\n");
+                Choices("The cards are being dealt.\nStart the game?\n(y or n)\n\nPress 'c' to see the deck of cards.", "You take two cards", "You tried.", "Here are all the cards:\n");
 
                 Console.ReadKey();
                 randomNums.Clear();
@@ -122,7 +122,7 @@ namespace Blackjack
             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀
             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀
             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣵⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-            ASCII cannot be read by terminal. Needs to be turned into UTF or something*/
+            ASCII cannot be read by terminal. Console needs to read a new font*/
                     
             }
 
@@ -146,14 +146,14 @@ namespace Blackjack
 
                 randomNumber = numGen.Next(0, 52);
 
-                    if (!randomNums.Contains(randomNumber)) {
-                        
-                        randomnumOrder.Add(randomNumber);
-                        randomNums.Add(randomNumber);
-                        norepeatCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
-                        i++;
+                if (!randomNums.Contains(randomNumber)) {
                     
-                    }
+                    randomnumOrder.Add(randomNumber);
+                    randomNums.Add(randomNumber);
+                    norepeatCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
+                    i++;
+                
+                }
 
             }
                 
@@ -163,7 +163,8 @@ namespace Blackjack
           
             Random cardGen = new Random();
             int randomCard = cardGen.Next(0,52);
-            int totalValue = new int();
+            int playerValue = new int();
+            int dealerValue = new int();
             int i = 0;
             
             
@@ -177,42 +178,43 @@ namespace Blackjack
                     playerCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
                     randomNums.Remove(randomCard); 
                     int value = Convert.ToInt32(cardDeck[randomnumOrder[i] , 1]);
-                    totalValue += value;
+                    playerValue += value;
                     i++;          
 
                 }
 
             }
 
-            Console.WriteLine("\nYour total value is: " + totalValue);
+            Console.WriteLine("\nYour total value is: " + playerValue);
             Console.WriteLine("Take another card?\n(y or n)");
+
             char userOption;
 
-            while (i < 52) {
+            while (i < 15) {
 
                 userOption = Console.ReadKey().KeyChar;
                 randomCard = cardGen.Next(0, 52);
 
-                if (totalValue <= 21) {                  
+                if (playerValue <= 21) {
 
                     if (userOption == 'y') {
 
                         if (randomNums.Contains(randomCard)) {
 
                             Console.Clear();
-                            playerCards.Add(cardDeck[randomnumOrder[i] , 0] + " = " + cardDeck[randomnumOrder[i] , 1]);
+                            playerCards.Add(cardDeck[randomnumOrder[i], 0] + " = " + cardDeck[randomnumOrder[i], 1]);
                             randomNums.Remove(randomCard);
-                            int value = Convert.ToInt32(cardDeck[randomnumOrder[i] , 1]);
-                            totalValue += value;     
-                            i++;      
-                            
+                            int value = Convert.ToInt32(cardDeck[randomnumOrder[i], 1]);
+                            playerValue += value;
+                            i++;
+
                             for (int t = 0; t < playerCards.Count; t++) {
-                            
-                                Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
-                            
+
+                                Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+
                             }
 
-                            Console.WriteLine("\nYour total value is: " + totalValue);
+                            Console.WriteLine("\nYour total value is: " + playerValue);
                             Console.WriteLine("Take another card?\n(y or n)");
 
                         }
@@ -220,33 +222,56 @@ namespace Blackjack
                     }
 
                     if (userOption == 'n') {
-                        
+
                         Console.Clear();
-                        
+                        Console.WriteLine("Player Cards:");
+
                         for (int t = 0; t < playerCards.Count; t++) {
-                            
-                            Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
-                            
+
+                            Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+
                         }
 
-                        Console.WriteLine("You ended with " + totalValue + " points.");
-                        break;
+                        Console.WriteLine("You ended with " + playerValue + " points.\n");
+
+// make another loop here so the dealer gets all his cards but use rules for when the dealer hits/stays according to the game
+//everythin between these
+
                         
 
-                    }
-                }
+                        if (randomNums.Contains(randomCard)) {
 
-                if (totalValue > 21) {
-                    
+                            Console.Clear();
+                            playerCards.Add(cardDeck[randomnumOrder[i], 0] + " = " + cardDeck[randomnumOrder[i], 1]);
+                            randomNums.Remove(randomCard);
+                            int value = Convert.ToInt32(cardDeck[randomnumOrder[i], 1]);
+                            playerValue += value;
+                            i++;
+
+                            for (int t = 0; t < playerCards.Count; t++) {
+
+                                Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+
+                            }
+
+                        }
+//everything between these
+                        break;
+                    }
+
+                    if (playerValue <= 21) {
+                        continue;
+                    }
+
                     Console.Clear();
 
                     for (int t = 0; t < playerCards.Count; t++) {
-                            
-                        Console.WriteLine(cardDeck[randomnumOrder[t] , 0] + " = " + cardDeck[randomnumOrder[t] , 1]);
-                            
+
+                        Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+
                     }
 
-                    Console.WriteLine("\nYour total value is: " + totalValue);
+                    Console.WriteLine("\nYour total value is: " + playerValue);
                     Console.WriteLine("You lost the game. Your total value was over 21");
                     userOption = Console.ReadKey().KeyChar;
 
@@ -271,7 +296,7 @@ namespace Blackjack
                             Console.ReadKey();
                             break;
                         }
-                        
+
                     }
 
                     else {
@@ -279,14 +304,13 @@ namespace Blackjack
                         break;
 
                     }
-                    
                 }
+
             }
 
         }
-
-    }
         
+    }
 }
 
         

@@ -202,7 +202,7 @@ namespace Blackjack {
 
                     for (int t = 0; t < playerCards.Count; t++) {
 
-                        Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+                        Console.WriteLine(playerCards[t]);
 
                     }
 
@@ -226,7 +226,7 @@ namespace Blackjack {
 
                             for (int t = 0; t < playerCards.Count; t++) {
 
-                                Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+                                Console.WriteLine(playerCards[t]);
 
                             }
 
@@ -244,7 +244,7 @@ namespace Blackjack {
 
                         for (int t = 0; t < playerCards.Count; t++) {
 
-                            Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+                            Console.WriteLine(playerCards[t]);
 
                         }
 
@@ -335,7 +335,7 @@ namespace Blackjack {
 
                     for (int t = 0; t < playerCards.Count; t++) {
 
-                        Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+                        Console.WriteLine(playerCards[t]);
 
                     }
 

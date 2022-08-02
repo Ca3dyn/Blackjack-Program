@@ -29,11 +29,13 @@ namespace Blackjack {
         public static void Main(string[] args){
             
             bool b = true;
-            Console.Title = "Caedyn's Blackjack Program v4.0";
+            Console.Title = "Caedyn's Blackjack Program v5.0";
 
             //I need to make it so aces are worth 11 at first but if the total value (playerValue) 
             //of the player's cards goes over 21 and an ace is in their hand then make it
             // automatically -10 or something
+
+            //Check if the game rules make it so that if a player has 21 immediately, he wins
 
             //Sometimes button intputs are needed twice or more times to register
             //I do not know why.    ¯\_(ツ)_/¯ 
@@ -50,6 +52,7 @@ namespace Blackjack {
                 playerCards.Clear();
                 norepeatCards.Clear();
                 randomnumOrder.Clear();
+                dealerCards.Clear();
                 Console.Clear();
             
             }
@@ -190,11 +193,24 @@ namespace Blackjack {
 
             char userOption;
 
-            while (i < 15) {
+            while (i < 52) {
 
                 userOption = Console.ReadKey().KeyChar;
                 randomCard = cardGen.Next(0, 52);
+//check if this stuff is right
+                if (playerValue == 21) {
 
+                    for (int t = 0; t < playerCards.Count; t++) {
+
+                        Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+
+                    }
+
+                    Console.WriteLine("\nYour total value is: " + playerValue);
+                    Console.WriteLine("Congratulations, you got Blackjack! You win!");
+
+                }
+//it should be moved if you win immediately when you have blackjack 
                 if (playerValue <= 21) {
 
                     if (userOption == 'y') {
@@ -234,33 +250,85 @@ namespace Blackjack {
 
                         Console.WriteLine("You ended with " + playerValue + " points.\n");
 
-// make another loop here so the dealer gets all his cards but use rules for when the dealer hits/stays according to the game
-//everythin between these
+                        while (i < 52) {
 
-                        
+                            if (dealerValue < 17) {
 
-                        if (randomNums.Contains(randomCard)) {
+                                randomCard = cardGen.Next(0, 52);
+                            
+                                if (randomNums.Contains(randomCard)) {
 
-                            Console.Clear();
-                            playerCards.Add(cardDeck[randomnumOrder[i], 0] + " = " + cardDeck[randomnumOrder[i], 1]);
-                            randomNums.Remove(randomCard);
-                            int value = Convert.ToInt32(cardDeck[randomnumOrder[i], 1]);
-                            playerValue += value;
-                            i++;
+                                    dealerCards.Add(cardDeck[randomnumOrder[i], 0] + " = " + cardDeck[randomnumOrder[i], 1]);
+                                    randomNums.Remove(randomCard);
+                                    int value = Convert.ToInt32(cardDeck[randomnumOrder[i], 1]);
+                                    dealerValue += value;
+                                    i++;
 
-                            for (int t = 0; t < playerCards.Count; t++) {
+                                }
 
-                                Console.WriteLine(cardDeck[randomnumOrder[t], 0] + " = " + cardDeck[randomnumOrder[t], 1]);
+                            }
+
+                            if (dealerValue > 21) {
+
+                                Console.WriteLine("Dealer's Cards:");
+
+                                for (int t = 0; t < dealerCards.Count; t++) {
+
+                                    Console.WriteLine(dealerCards[t]);
+
+                                }
+
+                                Console.WriteLine("The dealer ended with " + dealerValue + " points.\n");
+                                Console.WriteLine("The dealer busted, you win!");
+
+                                break;
+                                
+                            }
+
+                            if (dealerValue >= 17) {
+                                
+                                Console.WriteLine("Dealer's Cards:");
+
+                                for (int t = 0; t < dealerCards.Count; t++) {
+
+                                    Console.WriteLine(dealerCards[t]);
+
+                                }
+
+                                Console.WriteLine("The dealer ended with " + dealerValue + " points.\n");
+
+                                if (dealerValue < playerValue) {
+
+                                    Console.WriteLine("You have the higher score, you win!");
+
+                                }
+
+                                if (dealerValue > playerValue) {
+
+                                    Console.WriteLine("The dealer has the higher score, you lose.");
+
+                                }
+
+                                if (dealerValue == playerValue) {
+
+                                    Console.WriteLine("Tie. Nobody wins this round.");
+
+                                }
+                          
+                                break;
 
                             }
 
                         }
-//everything between these
+
                         break;
+
                     }
 
                     if (playerValue <= 21) {
+
                         continue;
+
                     }
 
                     Console.Clear();

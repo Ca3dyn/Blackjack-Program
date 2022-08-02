@@ -1,0 +1,15 @@
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\bin\Debug\net6.0\Blackjack v5.0.exe
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\bin\Debug\net6.0\Blackjack v5.0.deps.json
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\bin\Debug\net6.0\Blackjack v5.0.runtimeconfig.json
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\bin\Debug\net6.0\Blackjack v5.0.dll
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\bin\Debug\net6.0\ref\Blackjack v5.0.dll
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\bin\Debug\net6.0\Blackjack v5.0.pdb
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.dll
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\ref\Blackjack v5.0.dll
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.pdb
+C:\Users\Administrator\Desktop\Important Files\Coding Stuff\C# Coding Projects\Blackjack v5.0\obj\Debug\net6.0\Blackjack v5.0.genruntimeconfig.cache
